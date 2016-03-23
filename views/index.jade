@@ -1,8 +1,8 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="utf-8")
-    title Alfie Portfolio
-  body
-    h1 Hello, #{name}!
+extends ./templates/main.jade
+
+block title
+    title Hello #{name}!
+
+block content
+    h1 Hello #{name}!
     p This is my new portfolio.
