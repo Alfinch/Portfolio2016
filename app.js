@@ -1,18 +1,11 @@
 var express = require('express');
 var app = express();
+var routes = require('./routes');
 
 app.set('view engine', 'jade');
 
-app.get('/:name(\\w+)', function(req, res) {
-    var name = req.params.name;
-    res.render('index', {
-        name: name
-    });
-});
-
-app.get('*', function(req, res) {
-    res.render('error404');
-});
+app.get('/:name(\\w+)', routes.index);
+app.get('*', routes.err404);
 
 var server = app.listen(3000, function() {
     console.log('Listening on port 3000');
